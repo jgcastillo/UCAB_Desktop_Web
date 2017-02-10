@@ -7,7 +7,10 @@ public class TopContainerFrame extends javax.swing.JFrame {
      */
     public TopContainerFrame() {
         initComponents();
+        
+        // Aqui colocamos el título que aparece en la barra de la aplicación
         this.setTitle("Contenedores");
+        // De esta manera forzamos a abrir en el centro de la pantalla
         this.setLocationRelativeTo(null);
     }
 
@@ -92,6 +95,9 @@ public class TopContainerFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        /* Usando una función Lambda para que la aplicación arranque en su 
+        propio hilo, tambié se podría hacer de la forma tradicional con una
+        clase anónima*/
         java.awt.EventQueue.invokeLater(() -> {
             new TopContainerFrame().setVisible(true);
         });
