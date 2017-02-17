@@ -1,4 +1,4 @@
-package edu.ucab.ferreuccab.view;
+package edu.ucab.ferreucab.view;
 
 import edu.ucab.ferreucab.controller.LoginController;
 

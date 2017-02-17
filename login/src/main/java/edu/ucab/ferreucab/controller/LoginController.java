@@ -1,7 +1,7 @@
 package edu.ucab.ferreucab.controller;
 
 import edu.ucab.ferreucab.model.User;
-import edu.ucab.ferreuccab.view.MainFrame;
+import edu.ucab.ferreucab.view.MainFrame;
 import java.awt.EventQueue;
 
 public class LoginController {
