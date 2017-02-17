@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.ucab.login;
+package edu.ucab.ferreuccab.view;
 
-/**
- *
- * @author jgcastillo
- */
 public class MainFrame extends javax.swing.JFrame {
 
     /**
@@ -16,6 +7,12 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        initGUI();
+    }
+    
+    private void initGUI(){
+        this.setTitle("Ferre-UCAB");
+        this.setLocationRelativeTo(null);
     }
 
     /**
