@@ -2,6 +2,7 @@ package edu.ucab.ferreucab.view;
 
 import edu.ucab.ferreucab.controller.MainFrameController;
 import edu.ucab.ferreucab.view.dialogs.MargenDialog;
+import edu.ucab.ferreucab.view.dialogs.UbicacionDialog;
 import edu.ucab.ferreucab.view.dialogs.UsuarioDialog;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -41,6 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         ingresoMenuItem = new javax.swing.JMenuItem();
         egresoMenuItem = new javax.swing.JMenuItem();
+        ubicacionMenuItem = new javax.swing.JMenuItem();
         margenMenuItem = new javax.swing.JMenuItem();
         usuarioMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -136,6 +138,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu2.add(egresoMenuItem);
 
+        ubicacionMenuItem.setText("Ubicaciones");
+        ubicacionMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubicacionMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ubicacionMenuItem);
+
         margenMenuItem.setText("Margen");
         margenMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +205,11 @@ public class MainFrame extends javax.swing.JFrame {
         controller.showDialog(dialog);
     }//GEN-LAST:event_usuarioMenuItemActionPerformed
 
+    private void ubicacionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubicacionMenuItemActionPerformed
+        UbicacionDialog dialog = new UbicacionDialog(this, true);
+        controller.showDialog(dialog);
+    }//GEN-LAST:event_ubicacionMenuItemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backPanel;
     private javax.swing.JPanel busquedaPanel;
@@ -209,6 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel listaPanel;
     private javax.swing.JMenuItem margenMenuItem;
     private javax.swing.JMenuItem salirMenuItem;
+    private javax.swing.JMenuItem ubicacionMenuItem;
     private javax.swing.JMenuItem usuarioMenuItem;
     // End of variables declaration//GEN-END:variables
 }

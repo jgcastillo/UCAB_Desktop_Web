@@ -53,6 +53,12 @@ public class Ubicacion implements Serializable {
 
     public Ubicacion() {
     }
+    
+    private Ubicacion(Builder builder){
+        pasillo = builder.pasillo;
+        estante = builder.estante;
+        espacio = builder.espacio;
+    }
 
     public Ubicacion(Integer id) {
         this.id = id;
@@ -124,4 +130,28 @@ public class Ubicacion implements Serializable {
         return "edu.ucab.ferreucab.model.Ubicacion[ id=" + id + " ]";
     }
     
+    public static class Builder{
+        private String pasillo;
+        private String estante;
+        private String espacio;
+        
+        public Builder pasillo(String pasillo){
+            this.pasillo = pasillo;
+            return this;
+        }
+        
+        public Builder estante(String estante) {
+            this.estante = estante;
+            return this;
+        }
+        
+        public Builder espacio(String espacio) {
+            this.espacio = espacio;
+            return this;
+        }
+        
+        public Ubicacion build(){
+            return new Ubicacion(this);
+        }
+    }
 }

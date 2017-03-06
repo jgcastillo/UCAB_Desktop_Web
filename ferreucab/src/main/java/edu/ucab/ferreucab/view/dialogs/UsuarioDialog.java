@@ -1,7 +1,7 @@
 package edu.ucab.ferreucab.view.dialogs;
 
 import edu.ucab.ferreucab.controller.UsuarioDialogController;
-import edu.ucab.ferreucab.utilities.Mensaje;
+import edu.ucab.ferreucab.utilities.Constantes;
 
 public class UsuarioDialog extends javax.swing.JDialog {
 
@@ -19,7 +19,7 @@ public class UsuarioDialog extends javax.swing.JDialog {
 
     private void initGUI() {
         this.setTitle("Nuevo Usuario");
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(this);
         this.messageLabel.setText(null);
     }
 
@@ -117,8 +117,8 @@ public class UsuarioDialog extends javax.swing.JDialog {
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(messageLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -142,9 +142,9 @@ public class UsuarioDialog extends javax.swing.JDialog {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         String message = checkFields();
-        if (message.equals(Mensaje.OK)) {
+        if (message.equals(Constantes.OK)) {
             controller.saveUser(usuarioTextField.getText(), passwordField1.getPassword());
-            showMessage(Mensaje.USUARIO_CREADO);
+            showMessage(Constantes.USUARIO_CREADO);
             okButton.setEnabled(false);
         } else {
             showMessage(message);
@@ -158,16 +158,16 @@ public class UsuarioDialog extends javax.swing.JDialog {
     private String checkFields() {
         String message = null;
         if (usuarioTextField.getText().isEmpty()) {
-            message = Mensaje.CAMPO_VACIO;
+            message = Constantes.CAMPO_VACIO;
         } else if (passwordField1.getPassword().length == 0) {
-            message = Mensaje.CAMPO_VACIO;
+            message = Constantes.CAMPO_VACIO;
         } else if (passwordField2.getPassword().length == 0) {
-            message = Mensaje.CAMPO_VACIO;
+            message = Constantes.CAMPO_VACIO;
         } else if (!new String(passwordField1.getPassword())
                 .equals(new String(passwordField1.getPassword()))) {
-            message = Mensaje.PSW_NO_COINCIDE;
+            message = Constantes.PSW_NO_COINCIDE;
         } else {
-            message = Mensaje.OK;
+            message = Constantes.OK;
         }
         return message;
     }

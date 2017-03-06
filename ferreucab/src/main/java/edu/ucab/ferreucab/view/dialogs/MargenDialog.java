@@ -1,8 +1,7 @@
 package edu.ucab.ferreucab.view.dialogs;
 
 import edu.ucab.ferreucab.controller.MargenDialogController;
-import edu.ucab.ferreucab.utilities.Mensaje;
-import java.math.BigDecimal;
+import edu.ucab.ferreucab.utilities.Constantes;
 import java.util.Date;
 
 public class MargenDialog extends javax.swing.JDialog {
@@ -21,7 +20,7 @@ public class MargenDialog extends javax.swing.JDialog {
 
     private void initGUI() {
         this.setTitle("Administración del Margen");
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(this);
         dateChooser.setDate(new Date());
     }
 
@@ -116,8 +115,8 @@ public class MargenDialog extends javax.swing.JDialog {
                     .addComponent(valorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(messageLabel)
-                .addGap(39, 39, 39)
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okButton)
                     .addComponent(cancelButton))
@@ -141,16 +140,17 @@ public class MargenDialog extends javax.swing.JDialog {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         String message = checkFields();
         try {
-            if (checkFields().equals(Mensaje.OK)) {
+            if (checkFields().equals(Constantes.OK)) {
                 Double margen = Double.parseDouble(valorTextField.getText());
-                controller.saveMargen(margen);
-                showMessage(Mensaje.MARGEN_CREADO);
+                Date fecha = dateChooser.getDate();
+                controller.saveMargen(fecha, margen);
+                showMessage(Constantes.MARGEN_CREADO);
                 okButton.setEnabled(false);
             } else {
                 showMessage(message);
             }    
         } catch (NumberFormatException e) {
-            showMessage(Mensaje.ERROR_FORMATO_DECIMAL);
+            showMessage(Constantes.ERROR_FORMATO_DECIMAL);
         }
         
     }//GEN-LAST:event_okButtonActionPerformed
@@ -160,13 +160,13 @@ public class MargenDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private String checkFields() {
-        String message = null;
+        String message;
         if(null == dateChooser.getDate()){
-            message = Mensaje.CAMPO_VACIO;
+            message = Constantes.CAMPO_VACIO;
         } else if(valorTextField.getText().isEmpty()){
-            message = Mensaje.CAMPO_VACIO;
+            message = Constantes.CAMPO_VACIO;
         } else {
-            message = Mensaje.OK;
+            message = Constantes.OK;
         }
         return message;
     }
