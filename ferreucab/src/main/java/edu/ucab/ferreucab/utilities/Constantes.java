@@ -8,6 +8,7 @@ public class Constantes {
     public static final String USUARIO_CREADO = "Usuario creado con éxito";
     public static final String MARGEN_CREADO = "Margen creado con éxito";
     public static final String UBICACION_CREADO = "Ubicación creada con éxito";
+    public static final String ARTICULO_CREADO = "Articulo creado con éxito";
     
     public static final String UBICAION_ELIMINADO = "Ubicacion eliminada con éxito";
     

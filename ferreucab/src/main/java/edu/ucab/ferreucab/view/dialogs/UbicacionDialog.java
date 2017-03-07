@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
@@ -93,6 +92,8 @@ public class UbicacionDialog extends javax.swing.JDialog {
 
         editButton.setEnabled(false);
         deleteButton.setEnabled(false);
+        
+        indexSelected = null;
     }
 
     private void fillFields() {
@@ -302,10 +303,6 @@ public class UbicacionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        /*
-        Hay que arreglar lafunción de edición
-        */
-        
         String ubi = makeUbicacion();
         int answer = JOptionPane.showConfirmDialog(this,
                 "¿Desea actualizar la ubicación " + ubi + "?",

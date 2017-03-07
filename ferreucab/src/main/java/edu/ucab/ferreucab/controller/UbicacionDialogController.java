@@ -18,7 +18,7 @@ public class UbicacionDialogController {
     
     public String[] getUbicacionByIndex(Integer index) {
         Ubicacion ubicacion = jpaController.find(index);
-        String[] data = {ubicacion.getPasillo(), ubicacion.getEstante(), ubicacion.getEstante()};
+        String[] data = {ubicacion.getPasillo(), ubicacion.getEstante(), ubicacion.getEspacio()};
         return data;
     }
     
@@ -43,11 +43,11 @@ public class UbicacionDialogController {
         }
         
         if (!ubicacion.getEstante().equals(estante)) {
-            ubicacion.setPasillo(estante);
+            ubicacion.setEstante(estante);
         }
         
         if (!ubicacion.getEspacio().equals(espacio)) {
-            ubicacion.setPasillo(espacio);
+            ubicacion.setEspacio(espacio);
         }
         
         jpaController.edit(ubicacion);

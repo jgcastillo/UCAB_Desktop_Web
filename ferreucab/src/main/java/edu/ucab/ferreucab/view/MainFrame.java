@@ -1,6 +1,7 @@
 package edu.ucab.ferreucab.view;
 
 import edu.ucab.ferreucab.controller.MainFrameController;
+import edu.ucab.ferreucab.view.dialogs.ArticuloDialog;
 import edu.ucab.ferreucab.view.dialogs.MargenDialog;
 import edu.ucab.ferreucab.view.dialogs.UbicacionDialog;
 import edu.ucab.ferreucab.view.dialogs.UsuarioDialog;
@@ -42,8 +43,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         ingresoMenuItem = new javax.swing.JMenuItem();
         egresoMenuItem = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         ubicacionMenuItem = new javax.swing.JMenuItem();
         margenMenuItem = new javax.swing.JMenuItem();
+        articuloMenuItem = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         usuarioMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
@@ -137,6 +141,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenu2.add(egresoMenuItem);
+        jMenu2.add(jSeparator1);
 
         ubicacionMenuItem.setText("Ubicaciones");
         ubicacionMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +158,15 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenu2.add(margenMenuItem);
+
+        articuloMenuItem.setText("Articulo");
+        articuloMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                articuloMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(articuloMenuItem);
+        jMenu2.add(jSeparator2);
 
         usuarioMenuItem.setText("Usuario");
         usuarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +224,13 @@ public class MainFrame extends javax.swing.JFrame {
         controller.showDialog(dialog);
     }//GEN-LAST:event_ubicacionMenuItemActionPerformed
 
+    private void articuloMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articuloMenuItemActionPerformed
+        ArticuloDialog dialog = new ArticuloDialog(this, true);
+        controller.showDialog(dialog);
+    }//GEN-LAST:event_articuloMenuItemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem articuloMenuItem;
     private javax.swing.JPanel backPanel;
     private javax.swing.JPanel busquedaPanel;
     private javax.swing.JMenuItem egresoMenuItem;
@@ -220,6 +240,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel listaPanel;
     private javax.swing.JMenuItem margenMenuItem;
