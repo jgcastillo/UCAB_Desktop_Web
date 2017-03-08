@@ -19,7 +19,8 @@ public class MargenDialogController {
     }
 
     public void saveMargen(Date fecha, Double value) {
-        Optional<Margen> opMargen = Optional.ofNullable(jpaController.findByStatus(Constantes.MARGEN_ACTIVO));
+        Optional<Margen> opMargen = Optional.ofNullable(jpaController
+                                    .findByStatus(Constantes.MARGEN_ACTIVO));
 
         if (opMargen.isPresent()) {
             Margen margenOld = opMargen.get();

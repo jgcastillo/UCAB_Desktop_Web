@@ -1,9 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.ucab.ferreucab.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,7 +29,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Articulo.findAll", query = "SELECT a FROM Articulo a")
     , @NamedQuery(name = "Articulo.findById", query = "SELECT a FROM Articulo a WHERE a.id = :id")
-    , @NamedQuery(name = "Articulo.findByNombre", query = "SELECT a FROM Articulo a WHERE a.nombre = :nombre")})
+    , @NamedQuery(name = "Articulo.findByNombre", query = "SELECT a FROM Articulo a WHERE a.nombre = :nombre")
+    , @NamedQuery(name = "Articulo.findByCodigo", query = "SELECT a FROM Articulo a WHERE a.codigo = :codigo")})
 public class Articulo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,15 +41,11 @@ public class Articulo implements Serializable {
     private Integer id;
     @Column(name = "nombre")
     private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "articuloId")
-    private Collection<Ingreso> ingresoCollection;
+    @Column(name = "codigo")
+    private String codigo;
     @JoinColumn(name = "ubicacion_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Ubicacion ubicacionId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "articuloId")
-    private Collection<Egreso> egresoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "articuloId")
-    private Collection<Inventario> inventarioCollection;
 
     public Articulo() {
     }
@@ -72,13 +70,12 @@ public class Articulo implements Serializable {
         this.nombre = nombre;
     }
 
-    @XmlTransient
-    public Collection<Ingreso> getIngresoCollection() {
-        return ingresoCollection;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setIngresoCollection(Collection<Ingreso> ingresoCollection) {
-        this.ingresoCollection = ingresoCollection;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Ubicacion getUbicacionId() {
@@ -87,24 +84,6 @@ public class Articulo implements Serializable {
 
     public void setUbicacionId(Ubicacion ubicacionId) {
         this.ubicacionId = ubicacionId;
-    }
-
-    @XmlTransient
-    public Collection<Egreso> getEgresoCollection() {
-        return egresoCollection;
-    }
-
-    public void setEgresoCollection(Collection<Egreso> egresoCollection) {
-        this.egresoCollection = egresoCollection;
-    }
-
-    @XmlTransient
-    public Collection<Inventario> getInventarioCollection() {
-        return inventarioCollection;
-    }
-
-    public void setInventarioCollection(Collection<Inventario> inventarioCollection) {
-        this.inventarioCollection = inventarioCollection;
     }
 
     @Override

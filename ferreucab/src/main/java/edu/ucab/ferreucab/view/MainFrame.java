@@ -2,6 +2,7 @@ package edu.ucab.ferreucab.view;
 
 import edu.ucab.ferreucab.controller.MainFrameController;
 import edu.ucab.ferreucab.view.dialogs.ArticuloDialog;
+import edu.ucab.ferreucab.view.dialogs.IngresoDialog;
 import edu.ucab.ferreucab.view.dialogs.MargenDialog;
 import edu.ucab.ferreucab.view.dialogs.UbicacionDialog;
 import edu.ucab.ferreucab.view.dialogs.UsuarioDialog;
@@ -202,7 +203,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_salirMenuItemActionPerformed
 
     private void ingresoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoMenuItemActionPerformed
-        // TODO add your handling code here:
+        IngresoDialog dialog = new IngresoDialog(this, true);
+        controller.showDialog(dialog);
     }//GEN-LAST:event_ingresoMenuItemActionPerformed
 
     private void egresoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egresoMenuItemActionPerformed

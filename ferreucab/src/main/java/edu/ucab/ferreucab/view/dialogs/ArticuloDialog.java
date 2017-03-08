@@ -172,7 +172,10 @@ public class ArticuloDialog extends javax.swing.JDialog {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         String message = checkFields();
         if(message.equals(Constantes.OK)){
-            System.out.println("guarda el articulo");
+            String nombre = nombreTextField.getText();
+            String codigo = codigoTextField.getText();
+            String ubicacion = (String) ubicacionComboBox.getSelectedItem();
+            controller.saveArticulo(nombre, codigo, ubicacion);
             showMessage(Constantes.ARTICULO_CREADO);
             clearFields();
         } else {
